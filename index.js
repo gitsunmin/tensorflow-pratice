@@ -13,7 +13,7 @@ const model = tf.model({ inputs: X, outputs: Y })
 
 model.compile({
     optimizer: tf.train.adam(),
-    loss: tf.losses.meanSquaredError
+    loss: tf.losses.meanSquaredError,
 })
 
 model.fit(원인, 결과, { epochs: 90000 }).then((result) => {

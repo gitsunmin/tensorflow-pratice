@@ -3,7 +3,7 @@ import '@tensorflow/tfjs-node';
 import { goodsNameList } from './goodsNameList';
 
 const tokenize = (data: string[]) => {
-    const charTokenizer = new Map<string,number>();
+    const charTokenizer = new Map<string, number>();
     const reverseCharTokenizer = new Map();
     let charIndex = 1;
 
@@ -11,9 +11,9 @@ const tokenize = (data: string[]) => {
     for (const name of goodsNameList) {
         for (const char of name) {  // ✨ 단어가 아니라 글자 단위로 반복
             if (!charTokenizer.has(char)) {
-            charTokenizer.set(char, charIndex);
-            reverseCharTokenizer.set(charIndex, char);
-            charIndex++;
+                charTokenizer.set(char, charIndex);
+                reverseCharTokenizer.set(charIndex, char);
+                charIndex++;
             }
         }
     }
@@ -23,8 +23,8 @@ const tokenize = (data: string[]) => {
     }
 };
 
-const textToCharSequence = (text: string, charTokenizer: Map<string, number>)  => { 
-  return text.split("").map(char => charTokenizer.get(char) || 0);
+const textToCharSequence = (text: string, charTokenizer: Map<string, number>) => {
+    return text.split("").map(char => charTokenizer.get(char) || 0);
 }
 
 const createTrainingData = (data: string[], charTokenizer: Map<string, number>) => {
@@ -61,7 +61,7 @@ const createModel = (vocabSize: number, maxLen: number) => {
     const model = tf.sequential();
 
     model.add(tf.layers.embedding({
-        inputDim: vocabSize, 
+        inputDim: vocabSize,
         outputDim: 16,  // 기존 10 → 16으로 증가
         inputLength: maxLen
     }));

@@ -2,6 +2,10 @@
   "name": "model-maker",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "train:word-predicte": "bun src/modules/word-predicte/traniner.ts",
+    "predict:word-predicte": "bun src/modules/word-predicte/predict.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },

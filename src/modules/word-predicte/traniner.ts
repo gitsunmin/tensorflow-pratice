@@ -478,7 +478,7 @@ export async function trainProductNameClassifier(): Promise<void> {
         const classifier = new ProductNameClassifier();
 
         // 모델 학습
-        await classifier.train(filteredNames, 15, 32, 0.2);
+        await classifier.train(filteredNames, 10, 32, 0.2);
 
         // 모델 테스트
         const testCases = [

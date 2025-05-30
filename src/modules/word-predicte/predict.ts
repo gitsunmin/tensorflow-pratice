@@ -13,8 +13,10 @@ export async function testProductNameClassifier(): Promise<void> {
         const classifier = new ProductNameClassifier();
 
         // 저장된 모델 불러오기
-        const modelDir = path.join(__dirname, 'src', 'modules', 'word-predicte', 'models', 'product-name-classifier');
+        const modelDir = path.join(__dirname, '..', '..', '..', 'models', 'product-name-classifier');
         const modelJsonPath = path.join(modelDir, 'model.json');
+
+        console.log('modelJsonPath:', modelJsonPath);
 
         if (!fs.existsSync(modelJsonPath)) {
             console.log('모델을 찾을 수 없습니다. 먼저 모델을 학습시켜야 합니다:');
@@ -38,7 +40,7 @@ export async function testProductNameClassifier(): Promise<void> {
             "상품에 대해 문의드립니다",
             // 추가 테스트 케이스
             "신선한 사과 5kg 박스",
-            "환불 요청합니다",
+            "안녕하세요 메롱",
         ];
 
         // 예측 실행 및 결과 출력
